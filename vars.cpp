@@ -12,5 +12,17 @@ int main()
 
     std::cout << "A variable is a portion of memory to store a value" << "\n";
 
+    // here are some ways to reperesent values in c++
+    std::cout << "The below given syntax is a way to define c-like variables" << "\n";
+    int x = 0;
+
+    std::cout << "This is second option is called constructors initialization" << "\n";
+    int y (0);
+
+    std::cout << "Finally this was introduced from C++11 which is also called uniform initialization" << "\n";
+    int sum { 0 };
+
+    std::cout << "The values are: " << x << " ," << y << " ," << sum << "\n";
+
     return 0;
 }
