@@ -24,5 +24,17 @@ int main()
 
     std::cout << "The values are: " << x << " ," << y << " ," << sum << "\n";
 
+    // also if we are not sure about variable types we can use auto or decltype
+    std::cout << "auto helps us find the varible typoe for the new variable initialized" << "\n";
+    int foot = 90;
+    auto finalScore = foot;
+
+    std::cout << "Similarly if we do not have a varible initialized we can do type decudtion with decltype" << "\n";
+    int scores = 100;
+    decltype(scores) scoreP { scores };
+    
+
+    std::cout << "The values are: " << finalScore << ", " << scoreP << "\n";
+
     return 0;
 }
