@@ -8,17 +8,15 @@ static int shared_value = 0;
 
 void shared_value_increment() {
     std::lock_guard<std::mutex> lockGuard(gLock);
-    gLock.lock();
         try{
             shared_value = shared_value + 1;
             throw "dangerous...abort";
         }
         catch(...){
-            std::cout << "handle exception";
-            gLock.unlock();
+            std::cout << "handle exception" << "\n";
+    
             return;
         }
-    gLock.unlock();
 }
 int main(){
 
