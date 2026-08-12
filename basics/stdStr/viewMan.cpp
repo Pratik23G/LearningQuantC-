@@ -44,5 +44,33 @@ int main()
     std::string hh {"IMPOSTER"};
     printStr(hh);
 
+    //Another really cool part about string_view is how it can read only
+    // transition from one assigned avlue to another without actually ever changing
+    // original value
+
+    std::string newMan { "Marshall" };
+    std::string_view svMan { newMan };
+
+    std::cout << svMan << "\n";
+
+    svMan = "SuperMan";
+
+    // This one now prints superMan
+    std::cout << svMan << "\n";
+
+    //This still prints Marshall, 
+    // no modifications on prior strings 
+    // in any way isn't this crazy
+    std::cout << newMan << "\n";
+
+
+    //Its also very flexible with constexpor unlike regular strings
+    // can run at compile time
+    //ex
+
+    constexpr std::string_view Lg { "Legend" };
+    //Below the output will replace Lg with "Legend" at compile time
+    std::cout << Lg << "\n"; 
+
     return 0;
 }
