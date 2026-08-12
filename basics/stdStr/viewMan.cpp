@@ -70,7 +70,11 @@ int main()
 
     constexpr std::string_view Lg { "Legend" };
     //Below the output will replace Lg with "Legend" at compile time
-    std::cout << Lg << "\n"; 
+    std::cout << Lg << "\n";
 
+    //string_view uses sv literal unlike "" quotes literal for C-Style strings
+    using namespace std::string_view_literals;
+    std::cout << "foo" << "\n"; // C-style string literal
+    std::cout << "good"sv << "\n"; //string_view literal
     return 0;
 }
