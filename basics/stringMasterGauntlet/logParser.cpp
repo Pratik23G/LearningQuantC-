@@ -4,7 +4,9 @@
 
 constexpr int MAX_LEN { 200 };
 constexpr std::string_view SEPARATOR { "|" };
-
+constexpr auto SCORE_ERROR { 3 };
+constexpr auto SCORE_WARN { 2 };
+constexpr auto SCORE_INFO { 1 };
 std::string_view extractLevel(std::string_view line)
 {
     auto pos { line.find(SEPARATOR) };
@@ -17,6 +19,18 @@ std::string_view extractMessage(std::string_view line)
     return line.substr(pos + 1);
 }
 
+constexpr int severityScore(std::string_view level)
+{
+    if( level == "ERROR") {
+        return SCORE_ERROR;
+    } else if (level == "WARN") {
+        return SCORE_WARN;
+    } else if (level == "INFO") {
+        return SCORE_INFO;
+    } else {
+        return 0;
+    }
+}
 
 int main()
 {
@@ -31,7 +45,9 @@ int main()
 
     auto level { extractLevel(line) };
     auto message { extractMessage(line) };
+    auto severity  { severityScore(level) };
 
-    std::cout << "Level: " << level << " " << "Message: " << message << "\n";
+    std::cout << "Level: " << level << "\n" << "Severity: " << severity << "\n" 
+        << "Message: " << message << "\n";
     return 0;
 }
