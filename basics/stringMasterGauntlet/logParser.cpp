@@ -15,9 +15,19 @@ std::string_view extractLevel(std::string_view line)
 
 std::string_view extractMessage(std::string_view line)
 {
-    auto pos { line.find(SEPARATOR) };
-    return line.substr(pos + 1);
+    auto pos1 { line.find(SEPARATOR) };
+    auto pos2 { line.find(SEPARATOR, pos1 + 1) };
+    return line.substr(pos2 + 1);
 }
+
+std::string_view extractCode(std::string_view line)
+{
+    auto pos1 { line.find(SEPARATOR) };
+    auto pos2 { line.find(SEPARATOR, pos1 + 1) };
+    return line.substr(pos1 + 1, pos2 - pos1 - 1);
+
+}
+
 
 constexpr int severityScore(std::string_view level)
 {
@@ -46,8 +56,10 @@ int main()
     auto level { extractLevel(line) };
     auto message { extractMessage(line) };
     auto severity  { severityScore(level) };
+    auto code { extractCode(line) };
 
-    std::cout << "Level: " << level << "\n" << "Severity: " << severity << "\n" 
+    std::cout << "Level: " << level << "\n" << "Severity: " << severity 
+        << "\n" << "Code: " << code << "\n"
         << "Message: " << message << "\n";
     return 0;
 }
