@@ -39,6 +39,25 @@ void printMessageRef(std::string& userMessage, int& countX)
     countX = 0;
 }
 
+/* 
+
+Here is more about pass by const lvalue reference
+
+It works with any type of argument when theres a reference parameter
+const
+
+*/
+
+void printRef(const int& y)
+{
+    std::cout << y << "\n";
+}
+
+void processStockPrice(const double& rates)
+{
+    std::cout << "Rates in Decimal points: " << rates << "\n";
+}
+
 int main()
 {   
 
@@ -69,6 +88,26 @@ int main()
     int count { 2 };
     printMessageVal(userResponse, count);
     printMessageRef(userResponse, count);
+
+
+    //lets test the printRef const reference with some examples for modifiable
+    // non-modifiable lvalue and rvalue literals too
+    
+    //modifiable lvalue
+    int testC { 4 };
+    printRef(testC);
+
+    //non-modifable lvalue
+    const int zZone { 50 };
+    printRef(zZone);
+
+    //rvalue literal
+    printRef(5);
+
+    //However if the types do not match the const reference can siletly make a temporary copy
+    // which can be expensive to consider similar like regular pass by value
+    double stockRate { 32.0 };
+    processStockPrice(stockRate); // This line siletly makes a temp copy of int -> double conversion
 
     return 0;
 }
