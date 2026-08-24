@@ -7,7 +7,7 @@ int main()
     int var { 8 };
     //typeless pointer with memory address of 0
     void* ptr { &var };
-    std::cin.get();
+    // std::cin.get();
 
     LOG(*(static_cast<int*>(ptr)));
     LOG(ptr);
