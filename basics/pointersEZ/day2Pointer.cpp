@@ -44,7 +44,23 @@ int main()
     ptr = &u;
 
     std::cout << *ptr << "\n"; // now prints out 7 instead of 5 prints value address is being pointed at
+
+    /* 
+
+    Now lets look at a case where the value being pointed at is changed
     
+    */
+
+    int val1 { 8 };
+    int* dumm { &val1 };
+
+    std::cout << val1 << "\n";//results x's value
+    std::cout << *dumm << "\n"; // print the value at address that ptr is holding (x's new address)
+
+    *dumm = 10;
+
+    std::cout << val1 << "\n"; // should change values to 10 now
+    std::cout << *dumm << "\n"; // shaould change the value to 10 now
 
     return 0;
 }
