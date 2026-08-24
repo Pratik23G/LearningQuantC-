@@ -30,5 +30,21 @@ int main()
     std::cout << *access << "\n"; // de-reference the value access is pointing to
     // using the * operator
 
+    // Now we will look at 2 cases of pointers assignment
+    /* 
+    1) Change what the pointer is pointing at (assign pointer a new address)
+    */
+
+    int z { 5 };
+    int* ptr { &z };
+
+    std::cout << *ptr << "\n"; // gives value 5 as pointer dereferences the value its pointed
+
+    int u { 7 };
+    ptr = &u;
+
+    std::cout << *ptr << "\n"; // now prints out 7 instead of 5 prints value address is being pointed at
+    
+
     return 0;
 }
