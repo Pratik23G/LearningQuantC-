@@ -41,7 +41,7 @@ int main()
     // cool things abhout size of pointers is that it depends on the architecture its being processed or compiled
     /* 
     
-    For a 32 bit archicture a pointer has 32 bits or 8 bytes of storage
+    For a 32 bit archicture a pointer has 32 bits or 4 bytes of storage
 
     for 64 bits its 8 bytes or 64 bits
     
