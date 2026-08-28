@@ -32,5 +32,12 @@ int main()
     int* nullPtr {};
     std::cout << "null pointer is " << (nullPtr ? "non-Null Ptr" : "Null pointer") << "\n";
 
+
+    //Null pointers are great to tackle dangling pointers
+    if(nullPtr) {
+        std::cout << *nullPtr << "\n";
+    }else {
+        std::cerr << "Its a null pointer and dangling pointer address is hard to dereference" << "\n";
+    }
     return 0;
 }
